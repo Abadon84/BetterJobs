@@ -44,25 +44,25 @@ import org.bukkit.event.vehicle.*;
 import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.nijiko.permissions.PermissionHandler;
-import de.abadon.bukkit.betterjobs.config.properties;
+import de.abadon.bukkit.betterjobs.config.Properties;
 
 /**
  *
  * @author code
  */
-public class betterjobs extends JavaPlugin {
+public class BetterJobs extends JavaPlugin {
 
     protected static final String configFile = "config.yml";
     protected static final Logger logger = Logger.getLogger("Minecraft");
-    protected static  properties conf;
+    protected static  Properties conf;
 
-    public betterjobs() {
+    public BetterJobs() {
         logger.log(Level.INFO, "[BetterJobs] BetterJobs plugin was Initialized.");
     }
 
     @Override
     public void onLoad() {
-            conf = new properties(getDataFolder());
+            conf = new Properties(getDataFolder());
             conf.loadConfig();
     }
 
