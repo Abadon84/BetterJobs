@@ -94,7 +94,7 @@ public class Properties {
             }
         } catch (IOException ex) {
             logger.log(Level.WARNING, "[" + pluginName + "] Error during file writing.");
-            return "Error during file writing."; 
+            return "Error during file writing.";
         }
     }
     
