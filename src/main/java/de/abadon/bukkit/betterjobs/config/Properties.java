@@ -85,7 +85,7 @@ public class Properties {
         try {
             String prop = props.getProperty(section, property);
             logger.log(Level.WARNING, "[" + pluginName + "] " + prop);
-            if(prop.equals("null")){
+            if(prop == "null"){
                 return "Try to set invalid config node.";
             }
             else{
