@@ -1,6 +1,6 @@
 /*
- * PermissionsEx - Permissions plugin for Bukkit
- * Copyright (C) 2011 t3hk0d3 http://www.tehkode.ru
+ * BetterJobs - Jobs plugin for Bukkit
+ * Copyright (C) 2011 Abadon84 http://www.procrafter.de
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,10 +17,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package de.abadon.bukkit.betterjobs ;
 
 import java.io.File;
