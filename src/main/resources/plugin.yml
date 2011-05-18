@@ -1,5 +1,5 @@
 name: BetterJobs
-main: de.abadon.betterjobs.bukkit.betterjobs
+main: de.abadon.bukkit.betterjobs.BetterJobs
 version: 0.1
 author: Abadon84
 website: www.bukkit.org
