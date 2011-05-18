@@ -55,6 +55,10 @@ public class BetterJobs extends JavaPlugin {
     protected static final String configFile = "config.yml";
     protected static final Logger logger = Logger.getLogger("Minecraft");
     protected static  Properties conf;
+    
+    public static final Logger log = Logger.getLogger("Minecraft");
+    public String name = this.getDescription().getName();
+    public String version = this.getDescription().getVersion();
 
     public BetterJobs() {
         logger.log(Level.INFO, "[BetterJobs] BetterJobs plugin was Initialized.");
@@ -66,14 +70,16 @@ public class BetterJobs extends JavaPlugin {
             conf.loadConfig();
     }
 
-    @Override
+    //@Override
     public void onEnable() {
-        logger.log(Level.INFO, "[BetterJobs] loaded");
+        //logger.log(Level.INFO, "[BetterJobs] loaded");
+        log.info(name + " " + version + " enabled");
     }
 
-    @Override
+    //@Override
     public void onDisable() {
-        logger.log(Level.INFO, "[BetterJobs]disabled successfully.");
+        //logger.log(Level.INFO, "[BetterJobs]disabled successfully.");
+    	log.info(name + " " + version + " disabled");
     }
 
     @Override
