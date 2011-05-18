@@ -83,17 +83,15 @@ public class Properties {
     
     public String setProperty(String section, String property, String value){
         try {
-            String prop = props.getProperty(section, property);
-            logger.log(Level.WARNING, "[" + pluginName + "] " + prop);
-            if(prop == "null"){
-                return "Try to set invalid config node.";
+            if(!props.getProperty(section, property).equals(null)){
+            props.setProperty(section, property, value);
+            props.save();
+            return "Configuration node set";
             }
             else{
-                props.setProperty(section, property, value);
-                props.save();
-                return "Configuration node set";
+                logger.log(Level.WARNING, "[" + pluginName + "] Try to set invalid config node.");
+                return "Try to set invalid config node.";
             }
-            
         } catch (IOException ex) {
             logger.log(Level.WARNING, "[" + pluginName + "] Error during file writing.");
             return "Error during file writing.";
