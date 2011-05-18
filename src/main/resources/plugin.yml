@@ -1,24 +1,25 @@
-name: betterjobs
+name: BetterJobs
 main: de.abadon.betterjobs.bukkit.betterjobs
 version: 0.1
 author: Abadon84
 website: www.bukkit.org
-description: betterjobs
+description: BetterJobs
 commands:
   bjobs:
-    description: Provides access to Permissions commands and information.
+    description: Provides access to BetterJobs commands and information.
     usage: |
            Usage:
            /<command> - Display help
-           /<command> info - Display help
-           /<command> info <job> - Display help
-           /<command> join <job> - Display help
-           /<command> stats - Display help
-           /<command> stats <player> - Display help
-           /<command> del <player> - Display help
-           /<command> set <job> <player> - Display help
+           /<command> info - Display job list
+           /<command> info <job> - Display job info
+           /<command> join <job> - Join a job
+           /<command> stats - Display your stats
+           /<command> stats <player> - Display player stats
+           /<command> del <player> - Delete player from job database
+           /<command> set <job> <player> - Set job for player
            /<command> config - Displays config
-           /<command> config reload - Display help
-           /<command> config save - Display help
-           /<command> config set <section> <node> <value>
+           /<command> config set <node> <value> - Set and save config node
+           /<command> backend - Displays Backend config
+           /<command> backend set <node> <value> - Set and save Backend config node
+           /<command> reload <node> <value> - Reload plugin
            
