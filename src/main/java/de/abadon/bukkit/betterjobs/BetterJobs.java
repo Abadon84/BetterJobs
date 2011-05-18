@@ -56,8 +56,6 @@ public class BetterJobs extends JavaPlugin {
     protected static  Properties conf;
     
     public static final Logger log = Logger.getLogger("Minecraft");
-    public String name = this.getDescription().getName();
-    public String version = this.getDescription().getVersion();
 
     public BetterJobs() {
         log.info("[BetterJobs] BetterJobs plugin was Initialized.");
@@ -70,11 +68,11 @@ public class BetterJobs extends JavaPlugin {
     }
 
     public void onEnable() {
-        log.info(name + " " + version + " enabled");
+        log.info("[BetterJobs] plugin enabled");
     }
 
     public void onDisable() {
-    	log.info(name + " " + version + " disabled");
+    	log.info("[BetterJobs] plugin disabled");
     }
 
     @Override
