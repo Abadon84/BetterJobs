@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.abadon.betterjobs.config;
+package de.abadon.bukkit.betterjobs.config;
 
 import java.io.*;
 import java.util.logging.Level;
@@ -81,19 +81,18 @@ public class properties {
         return props.getProperty(section, property);
     }
     
-    public boolean setProperty(String section, String property, String value){
+    public String setProperty(String section, String property, String value){
         try {
-            if(!"null".equals(props.getProperty(section, property))){
-            logger.log(Level.WARNING, "[" + pluginName + "] " + props.getProperty(section, property));
+            if(!props.getProperty(section, property).equalsIgnoreCase("null")){
             props.setProperty(section, property, value);
             props.save();
-            return true;
+            return "Configuration node set";
             }
             logger.log(Level.WARNING, "[" + pluginName + "] Try to set invalid config node.");
-            return false;
+            return "Try to set invalid config node.";
         } catch (IOException ex) {
             logger.log(Level.WARNING, "[" + pluginName + "] Error during file writing.");
-            return false;
+            return "Error during file writing.";
         }
     }
     

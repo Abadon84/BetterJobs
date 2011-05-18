@@ -21,7 +21,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.abadon.betterjobs.bukkit ;
+package de.abadon.bukkit.betterjobs ;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,7 +44,7 @@ import org.bukkit.event.vehicle.*;
 import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.nijiko.permissions.PermissionHandler;
-import de.abadon.betterjobs.config.properties;
+import de.abadon.bukkit.betterjobs.config.properties;
 
 /**
  *
@@ -113,12 +113,7 @@ public class betterjobs extends JavaPlugin {
                         }
                     }
                     else if(args[0].equalsIgnoreCase("config") && args[1].equalsIgnoreCase("set") && args.length == 4){
-                        if (conf.setProperty("PLUGIN", args[2], args[3])){
-                            player.sendMessage("Configuration node set");
-                        }
-                        else{
-                            player.sendMessage("No valid configuration node or file-writing-error... see console...");
-                        }
+                        player.sendMessage(conf.setProperty("PLUGIN", args[2], args[3]));
                     }
                     else if(args[0].equalsIgnoreCase("backend") && args.length == 1){
                         HashMap Config = conf.getSection("DATABASE");
@@ -129,12 +124,7 @@ public class betterjobs extends JavaPlugin {
                         }
                     }
                     else if(args[0].equalsIgnoreCase("backend") && args[1].equalsIgnoreCase("set") && args.length == 4){
-                        if (conf.setProperty("DATABASE", args[2], args[3])){
-                            player.sendMessage("Configuration node set");
-                        }
-                        else{
-                            player.sendMessage("No valid configuration node or file-writing-error... see console...");
-                        }
+                        player.sendMessage(conf.setProperty("DATABASE", args[2], args[3]));
                     }
                     else if(args[0].equalsIgnoreCase("reload") && args.length == 1){
                         conf.loadConfig();
