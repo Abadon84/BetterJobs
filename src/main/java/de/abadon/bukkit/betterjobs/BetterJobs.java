@@ -53,7 +53,7 @@ import de.abadon.bukkit.betterjobs.config.Properties;
 public class BetterJobs extends JavaPlugin {
 
     protected static final String configFile = "config.yml";
-    protected static final Logger logger = Logger.getLogger("Minecraft");
+    protected static final Logger logger = Logger.getLogger("Minecraft.BetterJobs");
     protected static  Properties conf;
 
     public BetterJobs() {
