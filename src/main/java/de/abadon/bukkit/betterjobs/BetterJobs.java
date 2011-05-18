@@ -53,7 +53,6 @@ import de.abadon.bukkit.betterjobs.config.Properties;
 public class BetterJobs extends JavaPlugin {
 
     protected static final String configFile = "config.yml";
-    protected static final Logger logger = Logger.getLogger("Minecraft.BetterJobs");
     protected static  Properties conf;
     
     public static final Logger log = Logger.getLogger("Minecraft");
@@ -61,7 +60,7 @@ public class BetterJobs extends JavaPlugin {
     public String version = this.getDescription().getVersion();
 
     public BetterJobs() {
-        logger.log(Level.INFO, "[BetterJobs] BetterJobs plugin was Initialized.");
+        log.info("[BetterJobs] BetterJobs plugin was Initialized.");
     }
 
     @Override
@@ -70,15 +69,11 @@ public class BetterJobs extends JavaPlugin {
             conf.loadConfig();
     }
 
-    //@Override
     public void onEnable() {
-        //logger.log(Level.INFO, "[BetterJobs] loaded");
         log.info(name + " " + version + " enabled");
     }
 
-    //@Override
     public void onDisable() {
-        //logger.log(Level.INFO, "[BetterJobs]disabled successfully.");
     	log.info(name + " " + version + " disabled");
     }
 
@@ -147,7 +142,6 @@ public class BetterJobs extends JavaPlugin {
                         player.sendMessage(testString);
                 }
             }
-            logger.log(Level.INFO, "[BetterJobs] version [{0}] get the command.", this.getDescription().getVersion());
             return true;
     }
     
