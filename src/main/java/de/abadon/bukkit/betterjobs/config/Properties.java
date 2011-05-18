@@ -1,5 +1,5 @@
 /*
- * BetterJobs - Jobs plugin for Bukkit
+ * BetterJobs - Jobs plugin for Bukkit  
  * Copyright (C) 2011 Abadon84 http://www.procrafter.de
  *
  * This program is free software; you can redistribute it and/or
