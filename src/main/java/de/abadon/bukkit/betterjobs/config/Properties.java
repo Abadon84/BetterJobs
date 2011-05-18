@@ -90,11 +90,9 @@ public class Properties {
             return "Configuration node set";
             }
             else{
-                logger.log(Level.WARNING, "[" + pluginName + "] Try to set invalid config node.");
                 return "Try to set invalid config node.";
             }
         } catch (IOException ex) {
-            logger.log(Level.WARNING, "[" + pluginName + "] Error during file writing.");
             return "Error during file writing.";
         }
     }
