@@ -83,7 +83,8 @@ public class Properties {
     
     public String setProperty(String section, String property, String value){
         try {
-            if(!props.getProperty(section, property).equals(null)){
+            Boolean isEmpty = props.getProperty(section, property).isEmpty();
+            if(!isEmpty){
             props.setProperty(section, property, value);
             props.save();
             return "Configuration node set";
