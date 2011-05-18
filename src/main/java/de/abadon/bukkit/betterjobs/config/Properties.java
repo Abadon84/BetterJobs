@@ -83,7 +83,7 @@ public class Properties {
     
     public String setProperty(String section, String property, String value){
         try {
-            if(props.getProperty(section, property).equalsIgnoreCase("null")){
+            if(props.getProperty(section, property).equals("null")){
                 return "Try to set invalid config node.";
             }
             else{
