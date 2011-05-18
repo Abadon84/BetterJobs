@@ -1,0 +1,24 @@
+name: betterjobs
+main: de.abadon.betterjobs.bukkit.betterjobs
+version: 0.1
+author: Abadon84
+website: www.bukkit.org
+description: betterjobs
+commands:
+  bjobs:
+    description: Provides access to Permissions commands and information.
+    usage: |
+           Usage:
+           /<command> - Display help
+           /<command> info - Display help
+           /<command> info <job> - Display help
+           /<command> join <job> - Display help
+           /<command> stats - Display help
+           /<command> stats <player> - Display help
+           /<command> del <player> - Display help
+           /<command> set <job> <player> - Display help
+           /<command> config - Displays config
+           /<command> config reload - Display help
+           /<command> config save - Display help
+           /<command> config set <section> <node> <value>
+           
