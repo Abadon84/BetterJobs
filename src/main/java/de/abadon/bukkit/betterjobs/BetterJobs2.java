@@ -18,13 +18,13 @@ import de.abadon.bukkit.betterjobs.config.Properties;
  *
  * @author code
  */
-public class BetterJobs extends JavaPlugin {
+public class BetterJobs2 extends JavaPlugin {
 
     protected static final String configFile = "config.yml";
     protected static final Logger logger = Logger.getLogger("Minecraft");
     protected static  Properties conf;
 
-    public BetterJobs() {
+    public BetterJobs2() {
         logger.log(Level.INFO, "[BetterJobs] BetterJobs plugin was Initialized.");
     }
 
@@ -114,10 +114,9 @@ public class BetterJobs extends JavaPlugin {
     }
     
     private void messageSender(String message, Player player){
-        for (String msg: message.split("\\n")
-                asdasd) {
+        for (String msg: message.split("\\n")) {
             player.sendMessage(msg);
-        }
+        } 
     }
 }
 
