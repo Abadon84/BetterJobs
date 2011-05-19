@@ -3,6 +3,7 @@ main: de.abadon.bukkit.betterjobs.BetterJobs
 version: 0.1
 author: Abadon84
 website: www.bukkit.org
+database: true
 description: BetterJobs
 commands:
   bjobs:

@@ -19,27 +19,14 @@
 
 package de.abadon.bukkit.betterjobs ;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.Set;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
-import org.bukkit.event.Event.Priority;
-import org.bukkit.event.block.*;
-import org.bukkit.event.entity.*;
-import org.bukkit.event.player.*;
-import org.bukkit.event.vehicle.*;
-import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
-import com.nijiko.permissions.PermissionHandler;
 import de.abadon.bukkit.betterjobs.config.Properties;
 import de.abadon.bukkit.betterjobs.backend.BackendManager;
 
