@@ -9,10 +9,16 @@ package de.abadon.bukkit.betterjobs.backend;
  * @author Abadon
  */
 public class Backend {
-    public void test1(){
+    
+    public Backend(){
         
     }
-    public void test2(){
+    
+    public String connect(){
+        return "im only the dummy";
+    }
         
+    public String disconnect(){
+        return "im only the dummy";
     }
 }
