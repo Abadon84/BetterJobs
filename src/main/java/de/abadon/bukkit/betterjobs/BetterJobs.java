@@ -102,38 +102,35 @@ public class BetterJobs extends JavaPlugin {
                     else if(args[0].equalsIgnoreCase("config") && args.length == 1){
                         HashMap Config = conf.getSection("PLUGIN");
                         Set<String> Nodes = Config.keySet();
-                        player.sendMessage("Plugin Configuration:");
+                        player.sendMessage(ChatColor.GREEN + "Plugin Configuration:");
                         for (String Node : Nodes) {
                             player.sendMessage(Node + ": " + Config.get(Node));
                         }
                     }
                     else if(args[0].equalsIgnoreCase("config") && args[1].equalsIgnoreCase("set") && args.length == 4){
-                        player.sendMessage(conf.setProperty("PLUGIN", args[2], args[3]));
+                        player.sendMessage(ChatColor.RED + conf.setProperty("PLUGIN", args[2], args[3]));
                     }
                     else if(args[0].equalsIgnoreCase("backend") && args.length == 1){
                         HashMap Config = conf.getSection("DATABASE");
                         Set<String> Nodes = Config.keySet();
-                        player.sendMessage("Plugin Configuration:");
+                        player.sendMessage(ChatColor.GREEN + "Backend Configuration:");
                         for (String Node : Nodes) {
                             player.sendMessage(Node + ": " + Config.get(Node));
                         }
                     }
                     else if(args[0].equalsIgnoreCase("backend") && args[1].equalsIgnoreCase("set") && args.length == 4){
-                        player.sendMessage(conf.setProperty("DATABASE", args[2], args[3]));
+                        player.sendMessage(ChatColor.RED + conf.setProperty("DATABASE", args[2], args[3]));
                     }
                     else if(args[0].equalsIgnoreCase("reload") && args.length == 1){
                         conf.loadConfig();
-                        player.sendMessage("BetterJobs reloaded");
+                        player.sendMessage(ChatColor.GREEN + "BetterJobs reloaded");
                     }
                     else{
                         messageSender(help,player);
                      }
                 }
                 else{
-                        String testString = conf.getProperty("DATABASE", "database");
-                        player.sendMessage(testString);
-                        testString = conf.getProperty("PLUGIN", "switchFee");
-                        player.sendMessage(testString);
+                    messageSender(help,player);
                 }
             }
             return true;
