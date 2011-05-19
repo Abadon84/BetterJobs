@@ -24,26 +24,32 @@ package de.abadon.bukkit.betterjobs.backend;
  * @author Abadon
  */
 
-import java.io.*;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.HashMap;
-import java.util.List;
 
 public class BackendManager {
     public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
     protected Backend backend;
     protected String backendName;
-    public BackendManager(HashMap backendConf){
-        backendName = backendConf.get("type").toString();
+    public BackendManager(HashMap<String, String> backendConf){
+        backendName = backendConf.get("type");
         if (backendName.equalsIgnoreCase("mysql")){
-            log.info("[BetterJobs] Loading MySQL backend...");            
+            try {
+                log.info("[BetterJobs] Loading MySql backend...");
+                backend = new MySqlBackend(backendConf.get("server"),backendConf.get("database"),backendConf.get("user"),backendConf.get("pass"));
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(BackendManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                log.info("[BetterJobs] Can not connect to Database:" + ex);
+            }
         }
         else if (backendName.equalsIgnoreCase("sqlite")){
-            log.info("[BetterJobs] Sqlite Backend ist leider noch nicht verfügbar :P");
+            log.info("[BetterJobs] Sqlite backend isnt implemented yet :P");
         }
         else{
-            log.warning("[BetterJobs] Invalid backend, please correct the config!");
+            log.warning("[BetterJobs] Invalid backend type, please correct the config!");
         }
     }
     
