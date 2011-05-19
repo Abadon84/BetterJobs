@@ -114,7 +114,7 @@ public class BetterJobs extends JavaPlugin {
                         player.sendMessage(ChatColor.RED + conf.setProperty("PLUGIN", args[2], args[3]));
                     }
                     else if(args[0].equalsIgnoreCase("backend") && args.length == 1){
-                        HashMap Config = conf.getSection("DATABASE");
+                        HashMap Config = conf.getSection("BACKEND");
                         Set<String> Nodes = Config.keySet();
                         player.sendMessage(ChatColor.GREEN + "Backend Configuration:");
                         for (String Node : Nodes) {
