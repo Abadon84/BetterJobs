@@ -41,6 +41,7 @@ import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.nijiko.permissions.PermissionHandler;
 import de.abadon.bukkit.betterjobs.config.Properties;
+import de.abadon.bukkit.betterjobs.backend.BackendManager;
 
 /**
  *
@@ -49,9 +50,10 @@ import de.abadon.bukkit.betterjobs.config.Properties;
 public class BetterJobs extends JavaPlugin {
 
     protected static final String configFile = "config.yml";
-    protected static  Properties conf;
+    protected static Properties conf;
+    protected static BackendManager backend; 
     
-    public static final Logger log = Logger.getLogger("Minecraft");
+    public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
 
     public BetterJobs() {
         log.info("[BetterJobs] BetterJobs plugin was Initialized.");
@@ -61,6 +63,7 @@ public class BetterJobs extends JavaPlugin {
     public void onLoad() {
             conf = new Properties(getDataFolder());
             conf.loadConfig();
+            backend = new BackendManager(conf.getSection("DATABASE"));
     }
 
     public void onEnable() {

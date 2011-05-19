@@ -18,19 +18,21 @@
  */
 package de.abadon.bukkit.betterjobs.config;
 
+/**
+ *
+ * @author Abadon
+ */
+
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.List;
 import de.abadon.utils.IniProperties;
-/**
- *
- * @author Abadon
- */
+
 public class Properties {
     private static final String pluginName = "BetterJobs";
-    private static final Logger logger = Logger.getLogger("Minecraft." + pluginName);
+    public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
     private File dataFolder;
     private File confFile;
     private IniProperties props;
@@ -46,23 +48,23 @@ public class Properties {
     public void loadConfig(){
         try {
         if (!dataFolder.isDirectory()) {
-            logger.log(Level.INFO, "[" + pluginName + "] Directory does not exists. Creating dirs.");
+            log.info("[" + pluginName + "] Directory does not exists. Creating dirs.");
             if (!dataFolder.mkdirs()) {
-            logger.log(Level.WARNING, "[" + pluginName + "] Error during directory create");
+            log.warning("[" + pluginName + "] Error during directory create");
             return;
             }
-            logger.log(Level.INFO, "[" + pluginName + "] Directory structure planted");
+           log.info("[" + pluginName + "] Directory structure planted");
         }
         if (!confFile.exists()){
-            logger.log(Level.INFO, "[" + pluginName + "] Planting config file");
+            log.info("[" + pluginName + "] Planting config file");
             props = new IniProperties();
             setDefault();
-            logger.log(Level.INFO, "[" + pluginName + "] Default config created");
+            log.info("[" + pluginName + "] Default config created");
         }
         props = new IniProperties(confFile.toString());
-        logger.log(Level.INFO, "[" + pluginName + "] loaded ini-file configuration");
+        log.info("[" + pluginName + "] loaded ini-file configuration");
         } catch (SecurityException ex) {
-            logger.log(Level.WARNING, "[" + pluginName + "] Error during file backend creation");
+            log.warning("[" + pluginName + "] Error during file backend creation");
         }
     }
 
@@ -73,7 +75,7 @@ public class Properties {
         try {
             props.save();
         } catch (IOException ex) {
-            logger.log(Level.WARNING, "[" + pluginName + "] Error during file writing.");
+            log.warning("[" + pluginName + "] Error during file writing.");
         }
     }
 
@@ -86,7 +88,7 @@ public class Properties {
         props.setProperty("BACKEND", "database", "10_minecraft");
         props.setProperty("BACKEND", "user", "user");
         props.setProperty("BACKEND", "pass", "pass");
-        props.setProperty("PERMISSIONS", "plugin", "permissionsex");
+        props.setProperty("PLUGIN", "permissions", "permissionsex");
         props.setProperty("PLUGIN", "chatDisplay", "none");
         props.setProperty("PLUGIN", "broadcastSkillUp", "true");
         props.setProperty("PLUGIN", "baseXp", "100");
@@ -123,11 +125,11 @@ public class Properties {
             return "Configuration node set";
             }
             else{
-                logger.log(Level.WARNING, "[" + pluginName + "] Try to set invalid config node.");
+                log.warning("[" + pluginName + "] Try to set invalid config node.");
                 return "Try to set invalid config node.";
             }
         } catch (IOException ex) {
-            logger.log(Level.WARNING, "[" + pluginName + "] Error during file writing.");
+            log.warning("[" + pluginName + "] Error during file writing.");
             return "Error during file writing.";
         }
     }
