@@ -63,7 +63,7 @@ public class BetterJobs extends JavaPlugin {
     public void onLoad() {
             conf = new Properties(getDataFolder());
             conf.loadConfig();
-            backend = new BackendManager(conf.getSection("DATABASE"));
+            backend = new BackendManager(conf.getSection("BACKEND"));
     }
 
     public void onEnable() {
@@ -122,7 +122,7 @@ public class BetterJobs extends JavaPlugin {
                         }
                     }
                     else if(args[0].equalsIgnoreCase("backend") && args[1].equalsIgnoreCase("set") && args.length == 4){
-                        player.sendMessage(ChatColor.RED + conf.setProperty("DATABASE", args[2], args[3]));
+                        player.sendMessage(ChatColor.RED + conf.setProperty("BACKEND", args[2], args[3]));
                     }
                     else if(args[0].equalsIgnoreCase("reload") && args.length == 1){
                         conf.loadConfig();
