@@ -26,8 +26,6 @@ package de.abadon.bukkit.betterjobs.backend;
 
 import java.sql.*;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MySqlBackend extends Backend{
     protected Connection con = null;
@@ -83,7 +81,7 @@ public class MySqlBackend extends Backend{
             Statement st = con.createStatement();
             st.executeUpdate("CREATE TABLE IF NOT EXISTS `bjobs_jobs` (`id` int(11) NOT NULL auto_increment,`name` varchar(32) NOT NULL,`description` varchar(320) NOT NULL,`prefix` varchar(16) NOT NULL,`suffix` varchar(16) NOT NULL,`moneygain` float NOT NULL default '0.1',`xpgain` float NOT NULL default '0.1',`flatrate` float NOT NULL default '0',PRIMARY KEY  (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;");
             st.executeUpdate("CREATE TABLE IF NOT EXISTS `bjobs_entitys` (`id` int(11) NOT NULL auto_increment,`type` int(1) NOT NULL,`name` varchar(16) NOT NULL,`job` int(11) NOT NULL,`value` double NOT NULL,PRIMARY KEY  (`id`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
-            st.executeUpdate("CREATE TABLE IF NOT EXISTS `bjobs_employees` (`id` int(11) NOT NULL auto_increment,`player` int(1) NOT NULL,`job` int(11) NOT NULL,`payout` double NOT NULL,PRIMARY KEY  (`id`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+            st.executeUpdate("CREATE TABLE IF NOT EXISTS `bjobs_employees` (`id` int(11) NOT NULL auto_increment,`player` varchar(32) NOT NULL,`job` int(11) NOT NULL,`payout` double NOT NULL,PRIMARY KEY  (`id`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
             log.info("[BetterJobs] Created Default-Tables");
             return true;
         } catch (SQLException ex) {
@@ -96,6 +94,9 @@ public class MySqlBackend extends Backend{
         return true;
     }
     
+    public boolean getPlayer(){
+        return false;
+    }
     
     public boolean savePlayer(){
         return false;
@@ -116,7 +117,7 @@ public class MySqlBackend extends Backend{
                 return false;
             }
         } catch (SQLException ex) {
-            log.warning("[BetterJobs] " + ex);
+            log.warning("[BetterJobs] Failed to create tables" + ex);
             return false;        
         }
             

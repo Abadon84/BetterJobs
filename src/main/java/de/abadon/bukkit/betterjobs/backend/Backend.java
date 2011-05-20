@@ -24,13 +24,11 @@ package de.abadon.bukkit.betterjobs.backend;
  * @author Abadon
  */
 import java.util.logging.Logger;
-import java.util.HashMap;
+import de.abadon.bukkit.betterjobs.Job;
 
 public class Backend {
     public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
-    HashMap Jobs = null;
-    HashMap Players = null;
-    
+    Job Jobs[] = null;   
     
     public Backend(){
         
@@ -46,7 +44,6 @@ public class Backend {
     
     public boolean reload(){
         Jobs = null;
-        Players = null;
         return load();
     }
     
