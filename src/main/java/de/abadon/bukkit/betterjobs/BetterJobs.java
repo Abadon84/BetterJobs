@@ -66,7 +66,7 @@ public class BetterJobs extends JavaPlugin {
         if(commandLabel.equalsIgnoreCase("bjobs"))
         {
            Player player = (Player)sender;
-            String help = "Usage of BetterJobs:\n/bjobs - Display help\n/bjobs info - Display jobs\n/bjobs info <job> - Display job info\n/bjobs join <job> - Join a job\n/bjobs stats - Display job stats\n/bjobs stats <player> - Display job stats of player\n/bjobs del <player> - Delete the players job\n/bjobs set <job> <player> - Set the players job\n/bjobs reload - Reload Better Jobs";
+            String help = "/bjobs - Display help\n/bjobs info - Display jobs\n/bjobs info <job> - Display job info\n/bjobs join <job> - Join a job\n/bjobs stats - Display job stats\n/bjobs stats <player> - Display job stats of player\n/bjobs del <player> - Delete the players job\n/bjobs set <job> <player> - Set the players job\n/bjobs reload - Reload Better Jobs";
                 if (args.length != 0){
                     if(args[0].equalsIgnoreCase("info") && args.length == 1){
                         player.sendMessage("command for job list");
@@ -116,10 +116,12 @@ public class BetterJobs extends JavaPlugin {
                         player.sendMessage(ChatColor.GREEN + "BetterJobs reloaded");
                     }
                     else{
+                        player.sendMessage(ChatColor.GREEN + "Usage of BetterJobs:");
                         messageSender(help,player);
                      }
                 }
                 else{
+                    player.sendMessage(ChatColor.GREEN + "Usage of BetterJobs:");
                     messageSender(help,player);
                 }
             }

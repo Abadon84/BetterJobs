@@ -24,7 +24,6 @@ package de.abadon.bukkit.betterjobs.config;
  */
 
 import java.io.*;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.List;

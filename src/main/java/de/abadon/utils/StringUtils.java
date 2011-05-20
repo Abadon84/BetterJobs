@@ -1,6 +1,6 @@
 /*
- * PermissionsEx - Permissions plugin for Bukkit
- * Copyright (C) 2011 t3hk0d3 http://www.tehkode.ru
+ * BetterJobs - Jobs plugin for Bukkit 
+ * Copyright (C) 2011 Abadon84 http://www.procrafter.de
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 
 package de.abadon.utils;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;

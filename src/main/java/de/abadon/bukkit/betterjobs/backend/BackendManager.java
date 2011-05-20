@@ -1,5 +1,5 @@
 /*
- * BetterJobs - Jobs plugin for Bukkit  
+ * BetterJobs - Jobs plugin for Bukkit 
  * Copyright (C) 2011 Abadon84 http://www.procrafter.de
  *
  * This program is free software; you can redistribute it and/or
@@ -24,8 +24,6 @@ package de.abadon.bukkit.betterjobs.backend;
  * @author Abadon
  */
 
-import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.HashMap;
 
@@ -51,5 +49,4 @@ public class BackendManager {
             log.warning("[BetterJobs] Invalid backend type, please correct the config!");
         }
     }
-    
 }
