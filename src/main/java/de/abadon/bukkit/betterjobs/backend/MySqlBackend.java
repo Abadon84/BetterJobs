@@ -48,7 +48,7 @@ public class MySqlBackend extends Backend{
         try {
             con = DriverManager.getConnection( "jdbc:mysql://" + server + "/" + database, user, pass );
             log.info("[BetterJobs] Connected to MySql");
-            if(checkTable("bjobs_jobs") && checkTable("bjobs_entitys") && checkTable("bjobs_employess")){
+            if(checkTable("bjobs_jobs") && checkTable("bjobs_entitys") && checkTable("bjobs_employees")){
                 return true; 
             }
             else{
