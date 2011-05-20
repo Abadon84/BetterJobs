@@ -37,7 +37,7 @@ public class BackendManager {
             try {
                 log.info("[BetterJobs] Loading MySql backend...");
                 backend = new MySqlBackend(backendConf.get("server"),backendConf.get("database"),backendConf.get("user"),backendConf.get("pass"));
-                log.info(backend.connect());
+                backend.connect();
             } catch (ClassNotFoundException ex) {
                 log.warning("[BetterJobs] JBDC-Driver not found");
             }

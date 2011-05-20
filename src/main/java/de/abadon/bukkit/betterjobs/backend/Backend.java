@@ -23,21 +23,11 @@ package de.abadon.bukkit.betterjobs.backend;
  *
  * @author Abadon
  */
-
+import java.util.logging.Logger;
 import java.util.HashMap;
 
 public class Backend {
-    
-    HashMap BlocksBreakPlayer = null;
-    HashMap BlocksBreakEnv = null;
-    HashMap BlocksCreate = null;
-    HashMap Kills = null;
-    String  Name = null;
-    String  Description = null;
-    String  Prefix = null;
-    String  Suffix = null;
-    String  XPGain = null;
-    String  MoneyGain = null;
+    public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
     HashMap Jobs = null;
     HashMap Players = null;
     
@@ -46,28 +36,34 @@ public class Backend {
         
     }
     
-    public String connect(){
-        return null;
+    public boolean connect(){
+        return false;
     }
         
-    public String disconnect(){
-        return null;
+    public boolean disconnect(){
+        return false;
     }
     
-    public String reload(){
-        return null;
+    public boolean reload(){
+        Jobs = null;
+        Players = null;
+        return load();
     }
     
-    public String setUp(){
-        return null;
+    public boolean load(){
+        return false;
+    }
+        
+    public boolean setUp(){
+        return false;
     }
     
-    public HashMap getJobs(){
-        return null;
+    public boolean getJobs(){
+        return false;
     }
     
-    public HashMap getPlayers(){
-        return null;
+    public boolean getPlayers(){
+        return false;
     }
     
     public boolean savePlayer(){
