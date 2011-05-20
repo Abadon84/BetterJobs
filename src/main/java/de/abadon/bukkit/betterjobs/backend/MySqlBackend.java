@@ -47,7 +47,7 @@ public class MySqlBackend extends Backend{
         try {
             con = DriverManager.getConnection( "jdbc:mysql://" + server + "/" + database, user, pass );
             Statement st = con.createStatement();
-            ResultSet res = st.executeQuery("SELECT * FROM `bjobs_jobs` LIMIT 0 , 1;");
+            ResultSet res = st.executeQuery("SHOW TABLES LIKE 'bjobs_jobs';");
             if(!res.first()){
                 if(setUp()){
                     log.info("[BetterJobs] Connected to MySql");
