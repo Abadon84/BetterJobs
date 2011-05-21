@@ -11,10 +11,10 @@ package de.abadon.bukkit.betterjobs;
 import java.util.HashMap;
 
 public class Job {
-    public String name = null;
-    public String description = null;
-    public String prefix = null;
-    public String suffix = null;
+    public String name = "bla";
+    public String description = "bla";
+    public String prefix = "bla";
+    public String suffix = "bla";
     public double moneyGain = 0.0;
     public double xpGain = 0.0;
     public double flatrate = 0.0;
