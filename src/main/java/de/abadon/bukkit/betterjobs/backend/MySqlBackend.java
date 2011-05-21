@@ -95,7 +95,7 @@ public class MySqlBackend extends Backend{
     public boolean load(){
         try {
             Statement st = con.createStatement();
-            ResultSet res = st.executeQuery("SELECT * from `bjob_jobs`;");
+            ResultSet res = st.executeQuery("SELECT * from `bjobs_jobs`;");
             int jobCount = res.getFetchSize();
             log.warning("[BetterJobs] Loaded " + jobCount + " jobs");
             if(res.next())
