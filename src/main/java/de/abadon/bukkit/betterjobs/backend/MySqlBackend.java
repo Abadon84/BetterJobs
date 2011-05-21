@@ -26,6 +26,8 @@ package de.abadon.bukkit.betterjobs.backend;
 
 import java.sql.*;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MySqlBackend extends Backend{
     protected Connection con = null;
@@ -91,7 +93,20 @@ public class MySqlBackend extends Backend{
     }
     
     public boolean load(){
+        try {
+            Statement st = con.createStatement();
+            ResultSet res = st.executeQuery("SELECT * from `bjob_jobs`;");
+            int jobCount = res.getFetchSize();
+            log.warning("[BetterJobs] Loaded " + jobCount + " jobs");
+            if(res.next())
+            {
+                //job = new Job(res.getString(3), res.getInt(1), res.getInt(2), plugin, player);
+            }
         return true;
+        } catch (SQLException ex) {
+            log.warning("[BetterJobs] Can't load jobs. " + ex);
+            return false;
+        }
     }
     
     public boolean getPlayer(){
