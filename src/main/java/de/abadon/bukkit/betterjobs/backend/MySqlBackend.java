@@ -25,6 +25,7 @@ package de.abadon.bukkit.betterjobs.backend;
  */
 
 import java.sql.*;
+import de.abadon.bukkit.betterjobs.Job;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -95,18 +96,19 @@ public class MySqlBackend extends Backend{
     public boolean load(){
         try {
             Statement st = con.createStatement();
-            ResultSet res = st.executeQuery("SELECT COUNT(*) FROM `bjobs_jobs`;");
-            int jobCount = 0;
+            ResultSet res = st.executeQuery("SELECT MAX(id) FROM `bjobs_jobs`;");
+            int jobMax = 0;
+            int jobCount;
             if(res.first()){
-                jobCount = res.getInt(1);
+                jobMax = res.getInt(1);
             }
+            Jobs = new Job[jobMax];
             st = con.createStatement();
             res = st.executeQuery("SELECT * from `bjobs_jobs`;");
-            log.warning("[BetterJobs] Loaded " + jobCount + " jobs");
-            for(;res.next();){
-                 log.info("[BetterJobs] " + res.getString(2) + " loaded");
-                //job = new Job(res.getString(3), res.getInt(1), res.getInt(2), plugin, player);
+            for(jobCount = 0;res.next(); jobCount++){
+                 Jobs[res.getInt(1)] = new Job(res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getDouble(6),res.getDouble(7),res.getDouble(8));
             }
+        log.warning("[BetterJobs] Loaded " + jobCount + " jobs");
         return true;
         } catch (SQLException ex) {
             log.warning("[BetterJobs] Can't load jobs. " + ex);
