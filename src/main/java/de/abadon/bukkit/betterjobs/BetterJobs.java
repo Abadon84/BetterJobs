@@ -71,7 +71,7 @@ public class BetterJobs extends JavaPlugin {
                         player.sendMessage(ChatColor.GREEN + "Following Jobs are available:");
                         for(Job job : backend.getJobs()){
                             if (job != null){
-                                player.sendMessage(job.name);
+                                player.sendMessage(job.name + ": " + job.description);
                             }
                         }
                     }
