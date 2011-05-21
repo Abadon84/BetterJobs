@@ -11,13 +11,13 @@ package de.abadon.bukkit.betterjobs;
 import java.util.HashMap;
 
 public class Job {
-    public String name = "bla";
-    public String description = "bla";
-    public String prefix = "bla";
-    public String suffix = "bla";
-    public double moneyGain = 0.0;
-    public double xpGain = 0.0;
-    public double flatrate = 0.0;
+    public String name;
+    public String description;
+    public String prefix;
+    public String suffix;
+    public double moneyGain;
+    public double xpGain;
+    public double flatrate;
     public double[] blockCreate = null;
     public double[] blockDestroyPlayer = null;
     public double[] blockDestroyNonPlayer = null;

@@ -106,7 +106,6 @@ public class MySqlBackend extends Backend{
             res = st.executeQuery("SELECT * from `bjobs_jobs`;");
             for(jobCount = 0;res.next(); jobCount++){
                 Jobs[res.getInt(1)] = new Job(res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getDouble(6),res.getDouble(7),res.getDouble(8));
-                    log.info("[BetterJobs]" + Jobs[res.getInt(1)].name);
             }
         log.info("[BetterJobs] Loaded " + jobCount + " jobs");
         return true;
