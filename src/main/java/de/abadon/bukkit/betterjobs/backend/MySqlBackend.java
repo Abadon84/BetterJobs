@@ -103,9 +103,8 @@ public class MySqlBackend extends Backend{
             st = con.createStatement();
             res = st.executeQuery("SELECT * from `bjobs_jobs`;");
             log.warning("[BetterJobs] Loaded " + jobCount + " jobs");
-            if(res.next())
-            {
-                log.warning("[BetterJobs] " + res.getString(2) + " loaded");
+            for(;res.next();){
+                 log.info("[BetterJobs] " + res.getString(2) + " loaded");
                 //job = new Job(res.getString(3), res.getInt(1), res.getInt(2), plugin, player);
             }
         return true;
