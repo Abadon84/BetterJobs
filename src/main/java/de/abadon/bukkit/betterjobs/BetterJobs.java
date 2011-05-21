@@ -39,8 +39,8 @@ public class BetterJobs extends JavaPlugin {
     protected static final String configFile = "config.yml";
     protected static Properties conf;
     protected static BackendManager backend; 
-    
     public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
+    public Job[] Jobs = null;
 
     public BetterJobs() {
         log.info("[BetterJobs] BetterJobs plugin was Initialized.");
@@ -48,12 +48,13 @@ public class BetterJobs extends JavaPlugin {
 
     @Override
     public void onLoad() {
-            conf = new Properties(getDataFolder());
-            conf.loadConfig();
-            backend = new BackendManager(conf.getSection("BACKEND"));
+        conf = new Properties(getDataFolder());
+        conf.loadConfig();
+        backend = new BackendManager(conf.getSection("BACKEND"));
     }
 
     public void onEnable() {
+        Jobs = backend.getJobs();
         log.info("[BetterJobs] plugin enabled");
     }
 
@@ -69,7 +70,10 @@ public class BetterJobs extends JavaPlugin {
             String help = "/bjobs - Display help\n/bjobs info - Display jobs\n/bjobs info <job> - Display job info\n/bjobs join <job> - Join a job\n/bjobs stats - Display job stats\n/bjobs stats <player> - Display job stats of player\n/bjobs del <player> - Delete the players job\n/bjobs set <job> <player> - Set the players job\n/bjobs reload - Reload Better Jobs";
                 if (args.length != 0){
                     if(args[0].equalsIgnoreCase("info") && args.length == 1){
-                        player.sendMessage("command for job list");
+                        player.sendMessage(ChatColor.GREEN + "Following Jobs are available:");
+                        for(Job Job : Jobs){
+                            player.sendMessage(Job.name);
+                        }
                     }
                     else if(args[0].equalsIgnoreCase("info") && args.length == 2){
                         player.sendMessage("command for job info " + args[1]);

@@ -26,6 +26,7 @@ package de.abadon.bukkit.betterjobs.backend;
 
 import java.util.logging.Logger;
 import java.util.HashMap;
+import de.abadon.bukkit.betterjobs.Job;
 
 public class BackendManager {
     public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
@@ -49,5 +50,9 @@ public class BackendManager {
         else{
             log.warning("[BetterJobs] Invalid backend type, please correct the config!");
         }
+    }
+    
+    public Job[] getJobs(){
+        return backend.Jobs;
     }
 }
