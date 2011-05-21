@@ -40,7 +40,6 @@ public class BetterJobs extends JavaPlugin {
     protected static Properties conf;
     protected static BackendManager backend; 
     public static final Logger log = Logger.getLogger("Minecraft.BetterJobs");
-    public Job[] Jobs = null;
 
     public BetterJobs() {
         log.info("[BetterJobs] BetterJobs plugin was Initialized.");
@@ -54,7 +53,6 @@ public class BetterJobs extends JavaPlugin {
     }
 
     public void onEnable() {
-        Jobs = backend.getJobs();
         log.info("[BetterJobs] plugin enabled");
     }
 
@@ -71,7 +69,7 @@ public class BetterJobs extends JavaPlugin {
                 if (args.length != 0){
                     if(args[0].equalsIgnoreCase("info") && args.length == 1){
                         player.sendMessage(ChatColor.GREEN + "Following Jobs are available:");
-                        for(Job job : Jobs){
+                        for(Job job : backend.getJobs()){
                             player.sendMessage(job.name);
                         }
                     }
