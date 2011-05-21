@@ -29,7 +29,7 @@ import de.abadon.bukkit.betterjobs.Job;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MySqlBackend extends Backend{
+public final class MySqlBackend extends Backend{
     protected Connection con = null;
     protected String server;
     protected String database;
@@ -41,13 +41,16 @@ public class MySqlBackend extends Backend{
         database = db;
         user = dbuser;
         pass = dbpass;
+        if (connect()){
+            log.info("[BetterJobs] Connected to MySql");
+        }
+        disconnect();
     }
     
     @Override
     public boolean connect(){
         try {
             con = DriverManager.getConnection( "jdbc:mysql://" + server + "/" + database, user, pass );
-            log.info("[BetterJobs] Connected to MySql");
             if(checkTable("bjobs_jobs") && checkTable("bjobs_entitys") && checkTable("bjobs_employees")){
                 return true; 
             }
@@ -94,6 +97,7 @@ public class MySqlBackend extends Backend{
     
     public boolean load(){
         try {
+            connect();
             Statement st = con.createStatement();
             ResultSet res = st.executeQuery("SELECT MAX(id) FROM `bjobs_jobs`;");
             int jobMax = 0;
@@ -107,9 +111,11 @@ public class MySqlBackend extends Backend{
             for(jobCount = 0;res.next(); jobCount++){
                 Jobs[res.getInt(1)] = new Job(res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getDouble(6),res.getDouble(7),res.getDouble(8));
             }
+        disconnect();
         log.info("[BetterJobs] Loaded " + jobCount + " jobs");
         return true;
         } catch (SQLException ex) {
+            disconnect();
             log.warning("[BetterJobs] Can't load jobs. " + ex);
             return false;
         }
